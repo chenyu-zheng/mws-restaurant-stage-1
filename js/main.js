@@ -87,6 +87,7 @@ window.initMap = () => {
     center: loc,
     scrollwheel: false
   });
+  console.log(self.map);
   updateRestaurants();
 }
 
@@ -136,8 +137,10 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
-  ul.append(document.createElement('li'));
-  ul.append(document.createElement('li'));
+  // add empty elements to help the alignment of last row
+  for (let i = 0; i < 3; i++) {
+    ul.append(document.createElement('li'));
+  }
   addMarkersToMap();
 }
 
