@@ -48,6 +48,12 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+
+header, main, footer {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -106,8 +112,11 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  /* height: 50px; */
   background-color: #3397DB;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
   align-items: center;
 }
 .filter-options h2 {
@@ -115,7 +124,12 @@ nav h1 a {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  margin: 0 20px;
+  margin: 10px 20px;
+}
+.filter-selects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .filter-options select {
   background-color: white;
@@ -134,25 +148,35 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 20px 0 40px;
   text-align: center;
 }
 #restaurants-list li {
+  box-sizing: border-box;
   background-color: #fff;
-  border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 15px;
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
+  width: 80%;
+  max-width: 300px;
+  display: inline-block;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+#restaurants-list li:empty {
+  content: '';
+  min-height: 0;
+  box-shadow: none;
+  padding: 0;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
+  /* min-height: 248px; */
   min-width: 100%;
 }
 #restaurants-list li h1 {
@@ -167,7 +191,7 @@ nav h1 a {
 }
 #restaurants-list p {
   margin: 0;
-  font-size: 11pt;
+  font-size: 14pt;
 }
 #restaurants-list li a {
   background-color: orange;
@@ -272,4 +296,32 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* ====================== Media Queries ====================== */
+@media screen and (min-width: 600px) {
+  #restaurants-list {
+    padding: 30px 0 60px;
+  }
+  #restaurants-list li {
+    width: 35%;
+    margin: 15px 7%;
+    vertical-align: top;
+  }
+  #restaurants-list p {
+    font-size: 12pt;
+  }
+  #restaurants-list li a {
+    /* vertical-align: bottom; */
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #restaurants-list li {
+    width: 26%;
+    margin: 15px 3%;
+  }
+  #restaurants-list p {
+    font-size: 11pt;
+  }
 }
