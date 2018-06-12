@@ -1,13 +1,12 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var map
-var markers = []
+  cuisines;
+var map;
+var markers = [];
 
 if (navigator.serviceWorker) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('/sw.js')
-      .then(function (registration) {console.log('registration successful with scope: ' + registration.scope)})
       .catch(function (error) {console.log('registration failed: ' + error)})
   });
 }
@@ -87,7 +86,6 @@ window.initMap = () => {
     center: loc,
     scrollwheel: false
   });
-  console.log(self.map);
   updateRestaurants();
 }
 
@@ -137,7 +135,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
-  // add empty elements to help the alignment of last row
+  // add empty elements to help the alignment of the last row
   for (let i = 0; i < 3; i++) {
     ul.append(document.createElement('li'));
   }
