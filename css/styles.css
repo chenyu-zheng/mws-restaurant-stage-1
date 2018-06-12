@@ -272,7 +272,7 @@ nav h1 a {
 
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 400px;
+  height: 330px;
   width: 100%;
 }
 
@@ -386,6 +386,9 @@ nav h1 a {
     font-size: 11pt;
   }
   /* Restaurant Details */
+  .inside #map-container {
+    height: 400px;
+  }
   #restaurant-container,
   #reviews-container {
     padding: 20px 12% 30px;
