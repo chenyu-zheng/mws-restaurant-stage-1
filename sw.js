@@ -20,6 +20,9 @@ const urlsToCache = [
   '/img/10.jpg'
 ];
 
+/**
+ * Open the cache, and add resources to the cache when installing the service worker.
+ */
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -32,6 +35,9 @@ self.addEventListener('install', function (event) {
   );
 });
 
+/**
+ * Find things in caches first; if maching failed then fetch from the internet.
+ */
 self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request, {
